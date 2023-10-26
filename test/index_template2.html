@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="./edit.css">
+    <link rel="stylesheet" href="./book.css">
+</head>
+<body>
+<div class="book without-animation with-summary"
+     data-level="0.2"
+     data-chapter-title="工作区暂存区和仓库区"
+     data-filepath="gong-zuo-qu-zan-cun-qu-he-cang-ku-qu.md"
+     data-basepath="."
+     data-revision="Fri Aug 31 2018 18:21:49 GMT+0800 (CST)"
+     data-innerlanguage="">
+
+    <div class="book-summary">
+        <ul class="summary">
+            <li class="chapter active" data-level="0" data-path="index.html">
+                <a href="./index.html">
+                    <i class="fa fa-check"></i>
+                    {{ book_name }}
+                </a>
+
+                {% for article_info in article_info_list %}
+                    <li class="chapter " data-level="0.1" data-path="{{ article_info.filename }}">
+                        <a href="{{ article_info.filepath_of_html }}">
+                            <i class="fa fa-check"></i>
+                            <b>{{ loop.index }}.</b>
+                            article_info.name
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </li>
+        </ul>
+
+        </ul>
+    </div>
+    <div class="book-body">
+        {{ article_body }}
+    </div>
+
+
+</div>
+</body>
+</html>

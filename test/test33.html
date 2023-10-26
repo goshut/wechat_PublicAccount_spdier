@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <link rel="stylesheet" href="./edit.css">
+    <link rel="stylesheet" href="./book.css">
+    <script src="./vue.global.js"></script>
+</head>
+<body>
+<script type="module">
+    const {createApp} = Vue
+    createApp({
+        data() {
+            return {
+                article_url: "",
+            }
+        },
+        methods: {
+            change_article_url(e) {
+                console.info(e.currentTarget.id)
+                this.article_url = e.currentTarget.id
+            }
+        },
+
+    }).mount('#app')
+</script>
+<div id="app" class="book without-animation with-summary"
+     data-level="0.2"
+     data-chapter-title="工作区暂存区和仓库区"
+     data-filepath="gong-zuo-qu-zan-cun-qu-he-cang-ku-qu.md"
+     data-basepath="."
+     data-revision="Fri Aug 31 2018 18:21:49 GMT+0800 (CST)"
+     data-innerlanguage="">
+
+    <div class="book-summary">
+        <ul class="summary">
+            <li class="chapter active" data-level="0" data-path="index.html">
+                <a id="./index.html">
+                    <i class="fa fa-check"></i>
+                    合集名
+                </a>
+            </li>
+
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/CPython源码探秘_index.html">
+                    <a id="../CPython源码探秘/CPython源码探秘_index.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>1.</b>
+                        ../CPython源码探秘/CPython源码探秘_index.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/edit.css">
+                    <a id="../CPython源码探秘/edit.css" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>2.</b>
+                        ../CPython源码探秘/edit.css
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/img">
+                    <a id="../CPython源码探秘/img" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>3.</b>
+                        ../CPython源码探秘/img
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/vue.global.js">
+                    <a id="../CPython源码探秘/vue.global.js" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>4.</b>
+                        ../CPython源码探秘/vue.global.js
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》1 Python中一切皆对象，这里的对象究竟是什么？解密Python中的对象模型.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》1 Python中一切皆对象，这里的对象究竟是什么？解密Python中的对象模型.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>5.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》1 Python中一切皆对象，这里的对象究竟是什么？解密Python中的对象模型.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》10 浮点数的行为.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》10 浮点数的行为.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>6.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》10 浮点数的行为.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》11 整数是怎么设计的，为什么它不会溢出？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》11 整数是怎么设计的，为什么它不会溢出？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>7.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》11 整数是怎么设计的，为什么它不会溢出？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》12 小整数对象池.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》12 小整数对象池.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>8.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》12 小整数对象池.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》13 整数在底层是如何进行大小比较的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》13 整数在底层是如何进行大小比较的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>9.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》13 整数在底层是如何进行大小比较的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》14 整数在底层是如何运算的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》14 整数在底层是如何运算的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>10.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》14 整数在底层是如何运算的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》15 bytes 对象是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》15 bytes 对象是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>11.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》15 bytes 对象是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》16 bytes 对象的行为（上）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》16 bytes 对象的行为（上）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>12.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》16 bytes 对象的行为（上）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》17 bytes 对象的行为（下）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》17 bytes 对象的行为（下）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>13.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》17 bytes 对象的行为（下）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》18 bytes 对象的缓存池.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》18 bytes 对象的缓存池.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>14.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》18 bytes 对象的缓存池.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》19 字符集和字符编码.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》19 字符集和字符编码.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>15.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》19 字符集和字符编码.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》2 解密 PyObject、PyVarObject、PyTypeObject.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》2 解密 PyObject、PyVarObject、PyTypeObject.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>16.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》2 解密 PyObject、PyVarObject、PyTypeObject.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》20 Python是怎么存储字符串的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》20 Python是怎么存储字符串的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>17.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》20 Python是怎么存储字符串的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》21 字符串的底层结构.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》21 字符串的底层结构.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>18.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》21 字符串的底层结构.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》22 字符串是怎么被创建的.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》22 字符串是怎么被创建的.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>19.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》22 字符串是怎么被创建的.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》23 字符串的相关操作.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》23 字符串的相关操作.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>20.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》23 字符串的相关操作.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》24 字符串的intern机制.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》24 字符串的intern机制.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>21.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》24 字符串的intern机制.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》25 列表是怎么实现的？解密列表的数据结构.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》25 列表是怎么实现的？解密列表的数据结构.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>22.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》25 列表是怎么实现的？解密列表的数据结构.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》26 列表是怎么实现扩容的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》26 列表是怎么实现扩容的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>23.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》26 列表是怎么实现扩容的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》27 列表支持的操作（上）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》27 列表支持的操作（上）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>24.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》27 列表支持的操作（上）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》28 列表支持的操作（中）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》28 列表支持的操作（中）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>25.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》28 列表支持的操作（中）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》29 列表支持的操作（下）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》29 列表支持的操作（下）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>26.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》29 列表支持的操作（下）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》3 type 和 object 的恩怨纠葛.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》3 type 和 object 的恩怨纠葛.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>27.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》3 type 和 object 的恩怨纠葛.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》30 列表的创建与销毁，以及缓存池机制.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》30 列表的创建与销毁，以及缓存池机制.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>28.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》30 列表的创建与销毁，以及缓存池机制.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》31 元组是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》31 元组是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>29.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》31 元组是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》32 初识哈希表.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》32 初识哈希表.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>30.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》32 初识哈希表.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》33 字典是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》33 字典是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>31.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》33 字典是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》34 对象的哈希值.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》34 对象的哈希值.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>32.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》34 对象的哈希值.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》35 索引冲突与哈希攻击.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》35 索引冲突与哈希攻击.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>33.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》35 索引冲突与哈希攻击.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》36 哈希表能够直接删除元素吗？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》36 哈希表能够直接删除元素吗？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>34.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》36 哈希表能够直接删除元素吗？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》37 字典是怎么创建的，支持的操作又是如何实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》37 字典是怎么创建的，支持的操作又是如何实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>35.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》37 字典是怎么创建的，支持的操作又是如何实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》38 字典是如何扩容的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》38 字典是如何扩容的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>36.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》38 字典是如何扩容的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》39 字典的缓存池.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》39 字典的缓存池.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>37.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》39 字典的缓存池.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》4 对象是怎么被创建的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》4 对象是怎么被创建的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>38.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》4 对象是怎么被创建的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》40 集合是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》40 集合是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>39.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》40 集合是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》41 集合支持的操作是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》41 集合支持的操作是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>40.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》41 集合支持的操作是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》42 迭代器的实现原理.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》42 迭代器的实现原理.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>41.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》42 迭代器的实现原理.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》43 PyCodeObject对象与pyc文件.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》43 PyCodeObject对象与pyc文件.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>42.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》43 PyCodeObject对象与pyc文件.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》44 解析PyCodeObject对象.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》44 解析PyCodeObject对象.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>43.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》44 解析PyCodeObject对象.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》45 pyc文件是怎么创建的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》45 pyc文件是怎么创建的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>44.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》45 pyc文件是怎么创建的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》46 虚拟机的执行环境：栈帧对象.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》46 虚拟机的执行环境：栈帧对象.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>45.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》46 虚拟机的执行环境：栈帧对象.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》47 名字、作用域、名字空间（上）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》47 名字、作用域、名字空间（上）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>46.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》47 名字、作用域、名字空间（上）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》48 名字、作用域、名字空间（下）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》48 名字、作用域、名字空间（下）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>47.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》48 名字、作用域、名字空间（下）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》49 虚拟机是怎么执行字节码的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》49 虚拟机是怎么执行字节码的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>48.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》49 虚拟机是怎么执行字节码的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》5 对象是如何被调用的.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》5 对象是如何被调用的.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>49.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》5 对象是如何被调用的.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》50 剖析字节码指令，观测Python程序的执行过程.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》50 剖析字节码指令，观测Python程序的执行过程.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>50.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》50 剖析字节码指令，观测Python程序的执行过程.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》51 虚拟机的一般表达式.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》51 虚拟机的一般表达式.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>51.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》51 虚拟机的一般表达式.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》52 流程控制语句 if 是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》52 流程控制语句 if 是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>52.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》52 流程控制语句 if 是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》53 流程控制语句 for、while 是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》53 流程控制语句 for、while 是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>53.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》53 流程控制语句 for、while 是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》54 异常是怎么实现的？虚拟机是如何将异常抛出去的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》54 异常是怎么实现的？虚拟机是如何将异常抛出去的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>54.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》54 异常是怎么实现的？虚拟机是如何将异常抛出去的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》55 虚拟机是如何捕获异常的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》55 虚拟机是如何捕获异常的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>55.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》55 虚拟机是如何捕获异常的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》56 函数的底层结构.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》56 函数的底层结构.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>56.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》56 函数的底层结构.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》57 函数是怎么创建的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》57 函数是怎么创建的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>57.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》57 函数是怎么创建的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》58 函数在底层是如何调用的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》58 函数在底层是如何调用的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>58.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》58 函数在底层是如何调用的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》59 函数是如何解析位置参数的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》59 函数是如何解析位置参数的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>59.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》59 函数是如何解析位置参数的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》6 对象的多态性、和行为.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》6 对象的多态性、和行为.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>60.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》6 对象的多态性、和行为.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》60 函数是如何解析关键字参数的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》60 函数是如何解析关键字参数的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>61.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》60 函数是如何解析关键字参数的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》61 args 和 kwargs 是如何解析的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》61 args 和 kwargs 是如何解析的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>62.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》61 args 和 kwargs 是如何解析的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》62 函数的 local 名字空间.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》62 函数的 local 名字空间.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>63.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》62 函数的 local 名字空间.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》63 闭包是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》63 闭包是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>64.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》63 闭包是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》64 装饰器是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》64 装饰器是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>65.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》64 装饰器是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》65 生成器的实现原理（上）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》65 生成器的实现原理（上）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>66.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》65 生成器的实现原理（上）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》66 生成器的实现原理（下）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》66 生成器的实现原理（下）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>67.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》66 生成器的实现原理（下）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》67 回顾 Python 的对象模型.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》67 回顾 Python 的对象模型.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>68.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》67 回顾 Python 的对象模型.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》68 深入 class.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》68 深入 class.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>69.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》68 深入 class.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》69 给类型对象设置类型和基类信息.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》69 给类型对象设置类型和基类信息.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>70.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》69 给类型对象设置类型和基类信息.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》7 对象的引用计数，对象何时被回收？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》7 对象的引用计数，对象何时被回收？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>71.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》7 对象的引用计数，对象何时被回收？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》70 类对象属性字典的填充.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》70 类对象属性字典的填充.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>72.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》70 类对象属性字典的填充.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》71 类对象 MRO 的设置，与基类的继承.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》71 类对象 MRO 的设置，与基类的继承.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>73.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》71 类对象 MRO 的设置，与基类的继承.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》72 自定义类对象的底层实现与 metaclass（上）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》72 自定义类对象的底层实现与 metaclass（上）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>74.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》72 自定义类对象的底层实现与 metaclass（上）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》73 自定义类对象的底层实现与 metaclass（下）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》73 自定义类对象的底层实现与 metaclass（下）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>75.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》73 自定义类对象的底层实现与 metaclass（下）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》74 彻底搞懂描述符.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》74 彻底搞懂描述符.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>76.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》74 彻底搞懂描述符.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》75 实例对象是如何创建的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》75 实例对象是如何创建的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>77.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》75 实例对象是如何创建的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》76 实例对象的属性访问（上）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》76 实例对象的属性访问（上）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>78.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》76 实例对象的属性访问（上）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》77 实例对象的属性访问（下）.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》77 实例对象的属性访问（下）.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>79.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》77 实例对象的属性访问（下）.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》78 魔法方法都有哪些？作用是什么？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》78 魔法方法都有哪些？作用是什么？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>80.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》78 魔法方法都有哪些？作用是什么？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》79 模块是如何导入的.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》79 模块是如何导入的.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>81.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》79 模块是如何导入的.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》8 浮点数的创建与销毁.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》8 浮点数的创建与销毁.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>82.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》8 浮点数的创建与销毁.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》80 import机制的黑盒探测.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》80 import机制的黑盒探测.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>83.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》80 import机制的黑盒探测.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》81 import 机制是怎么实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》81 import 机制是怎么实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>84.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》81 import 机制是怎么实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》82 Python运行时环境的初始化，解释器在启动时都做了什么？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》82 Python运行时环境的初始化，解释器在启动时都做了什么？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>85.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》82 Python运行时环境的初始化，解释器在启动时都做了什么？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》83 激活 Python 虚拟机.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》83 激活 Python 虚拟机.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>86.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》83 激活 Python 虚拟机.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》84 初识GIL、以及多个线程之间的调度机制.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》84 初识GIL、以及多个线程之间的调度机制.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>87.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》84 初识GIL、以及多个线程之间的调度机制.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》85 Python线程的创建、销毁、调度，以及 GIL 的实现原理.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》85 Python线程的创建、销毁、调度，以及 GIL 的实现原理.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>88.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》85 Python线程的创建、销毁、调度，以及 GIL 的实现原理.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》86 内置函数解析.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》86 内置函数解析.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>89.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》86 内置函数解析.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》87 解密 map、filter、zip 底层实现，对比列表解析式.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》87 解密 map、filter、zip 底层实现，对比列表解析式.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>90.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》87 解密 map、filter、zip 底层实现，对比列表解析式.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》88 侵入 Python 虚拟机，动态修改底层数据结构和运行时.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》88 侵入 Python 虚拟机，动态修改底层数据结构和运行时.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>91.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》88 侵入 Python 虚拟机，动态修改底层数据结构和运行时.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》89 为什么要有协程，协程是如何实现的？.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》89 为什么要有协程，协程是如何实现的？.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>92.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》89 为什么要有协程，协程是如何实现的？.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》9 浮点数的缓存池机制.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》9 浮点数的缓存池机制.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>93.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》9 浮点数的缓存池机制.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》90 剖析 Python 的协程.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》90 剖析 Python 的协程.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>94.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》90 剖析 Python 的协程.html
+                    </a>
+                </li>
+            
+                <li class="chapter " data-level="0.1" data-path="../CPython源码探秘/《源码探秘 CPython》91 可执行文件的内存模型，变量的值是放在栈上还是放在堆上.html">
+                    <a id="../CPython源码探秘/《源码探秘 CPython》91 可执行文件的内存模型，变量的值是放在栈上还是放在堆上.html" @click="change_article_url($event)">
+                        <i class="fa fa-check"></i>
+                        <b>95.</b>
+                        ../CPython源码探秘/《源码探秘 CPython》91 可执行文件的内存模型，变量的值是放在栈上还是放在堆上.html
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+    <div class="book-body">
+        <iframe :src="article_url"
+                width="100%" height="100%" frameborder="no"
+                align="center"></iframe>
+    </div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <link rel="stylesheet" href="./edit.css">
+    <link rel="stylesheet" href="./book.css">
+    <script src="./vue.global.js"></script>
+</head>
+<body>
+<script type="module">
+    const {createApp} = Vue
+    createApp({
+        data() {
+            return {
+                article_url: "《源码探秘 CPython》1 Python中一切皆对象，这里的对象究竟是什么？解密Python中的对象模型.html",
+            }
+        },
+        methods: {
+            change_article_url(e) {
+                console.info(e.currentTarget.id)
+                this.article_url = e.currentTarget.id
+            }
+        },
+
+    }).mount('#app')
+</script>
+
+<div id="app" class="book without-animation with-summary"
+     data-level="0.2"
+     data-chapter-title="工作区暂存区和仓库区"
+     data-filepath="gong-zuo-qu-zan-cun-qu-he-cang-ku-qu.md"
+     data-basepath="."
+     data-revision="Fri Aug 31 2018 18:21:49 GMT+0800 (CST)"
+     data-innerlanguage="">
+
+    <div class="book-summary">
+        <ul class="summary">
+            <li class="chapter active" data-level="0" data-path="index.html">
+                <a id="./index.html">
+                    <i class="fa fa-check"></i>
+                    合集名
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="0文件名">
+                <a id="《源码探秘 CPython》1 Python中一切皆对象，这里的对象究竟是什么？解密Python中的对象模型.html"
+                   @click="change_article_url($event)">
+                    <i class="fa fa-check"></i>
+                    <b>1.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="1文件名">
+                <a id="《源码探秘 CPython》5 对象是如何被调用的.html" @click="change_article_url($event)">
+                    <i class="fa fa-check"></i>
+                    <b>2.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="2文件名">
+                <a href="2/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>3.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="3文件名">
+                <a href="3/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>4.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="4文件名">
+                <a href="4/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>5.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="5文件名">
+                <a href="5/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>6.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="6文件名">
+                <a href="6/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>7.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="7文件名">
+                <a href="7/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>8.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="8文件名">
+                <a href="8/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>9.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="9文件名">
+                <a href="9/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>10.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="10文件名">
+                <a href="10/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>11.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="11文件名">
+                <a href="11/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>12.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="12文件名">
+                <a href="12/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>13.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="13文件名">
+                <a href="13/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>14.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="14文件名">
+                <a href="14/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>15.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="15文件名">
+                <a href="15/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>16.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="16文件名">
+                <a href="16/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>17.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="17文件名">
+                <a href="17/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>18.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="18文件名">
+                <a href="18/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>19.</b>
+                    article_info.name
+                </a>
+            </li>
+
+            <li class="chapter " data-level="0.1" data-path="19文件名">
+                <a href="19/文件相对位置">
+                    <i class="fa fa-check"></i>
+                    <b>20.</b>
+                    article_info.name
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="book-body">
+        <iframe :src="article_url"
+                width="100%" height="100%" frameborder="no"
+                align="center"></iframe>
+    </div>
+
+
+</div>
+</body>
+</html>

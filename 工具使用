@@ -1,0 +1,12 @@
+xpath定位:
+from lxml import etree
+# etree.HTML(response.text)是个列表
+html = etree.HTML(response.text)[0]
+# 不加 method="html",格式有偏差,要不就清洗数据
+# from lxml.html.clean import Cleaner
+# cleaner = Cleaner()
+# str2 = cleaner.clean_html(str2, )
+etree.tounicode(html, method="html")
+
+etree.tostring()
+del laji.attrib["style"] # 删除属性
