@@ -13,5 +13,20 @@
 <div class="wx_temp">
     {{ article }}
 </div>
+<script>
+    const storedPosition = localStorage.getItem(document.title + "_scroll_position");
+    if (storedPosition) {
+        const {scrollX, scrollY} = JSON.parse(storedPosition);
+        window.scrollTo(scrollX, scrollY);
+    }
+
+    window.addEventListener('beforeunload', function (event) {
+        // 在这里执行清理操作
+        // console.log('beforeunload:页面即将被关闭或切换');
+        // 注意：在大多数现代浏览器中，自定义的警告信息将不会被显示给用户
+        const scrollPosition = {scrollX: window.scrollX, scrollY: window.scrollY};
+        localStorage.setItem(document.title + "_scroll_position", JSON.stringify(scrollPosition));
+    });
+</script>
 </body>
 </html>

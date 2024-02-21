@@ -1,17 +1,19 @@
 import os.path
 
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 from config import *
 from spider import *
 from tools import *
 
-env = Environment(loader=PackageLoader("微信_公众号", "templates"))
+file_dir = os.path.dirname(__file__)
+project_dir = file_dir
+env = Environment(loader=FileSystemLoader(f"{project_dir}/templates"))
 template = env.get_template("template.html")
-index_template = env.get_template("index_template.html")
+index_template = env.get_template("vue_重构_index_template.html")
 
 
-def get_article(html_date, dir_name):
+def get_article(html_date, save_dir_path):
     """
     :param html_date: 一个html文档utf-8编码
     :return:标题和微信公众号文章有用的部分..
@@ -23,7 +25,7 @@ def get_article(html_date, dir_name):
     title = article_tree.xpath(TITLE_PATH)[0].strip()
     title = clean_str(title)
     # 先进行图片处理
-    article_tree = img_deal(article_tree, dir_name)
+    article_tree = img_deal(article_tree, save_dir_path)
     article = etree.tounicode(article_tree, method="html")
     return title, article
 
@@ -41,19 +43,20 @@ def merge_template(title, article):
 same_name = {}
 
 
-def write_html(dir_name, html_date):
-    title, article = get_article(html_date, dir_name)
+def write_html(save_dir_path, html_date):
+    # base_dir_name = os.path.basename(save_dir_path)
+    title, article = get_article(html_date, save_dir_path)
     data = merge_template(title, article)
     same_name[title] = same_name.get(title, 0) + 1
     if same_name[title] > 1:  # 如果有相同名字的html文件了,加上后缀
         title = f'{title}{same_name[title]}'
-    with open(f'{dir_name}/{title}.html', 'w', encoding="utf-8") as f:
+    with open(f'{save_dir_path}/{title}.html', 'w', encoding="utf-8") as f:
         f.write(data)
     return title
 
 
-def img_deal(tree_, dir_name):
-    img_dir_path = f'{dir_name}/{img_static_dir}'
+def img_deal(tree_, save_dir_path):
+    img_dir_path = f'{save_dir_path}/{img_static_dir}'
     mkdir(img_dir_path)
     image_list = tree_.xpath(image_xpath)
     for index, i in enumerate(image_list):
@@ -80,11 +83,12 @@ def writ_get_data(url, file_name):
         f.write(requests.get(url=url).content)
 
 
-def writ_index_html(book_name, article_info_list):
+def writ_index_html(save_dir_path, article_info_list):
+    book_name = os.path.basename(save_dir_path)
     new_html = index_template.render(title=book_name,
-                                     book_name=book_name,
+                                     # book_name=book_name,
                                      article_info_list=article_info_list)
-    with open(f'{book_name}/index.html', 'w', encoding='utf-8') as f:
+    with open(f'{save_dir_path}/index.html', 'w', encoding='utf-8') as f:
         f.write(new_html)
     print(f"{book_name} index.html写入完毕!")
 

@@ -2,10 +2,12 @@ URL = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=get
 ROLL_URL = "https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=Mzg3NTczMDU2Mg==&album_id={album_id}&count=10&begin_msgid={begin_msgid}&begin_itemidx=1&uin=&key=&pass_ticket=&wxtoken=&devicetype=&clientversion=&__biz=Mzg3NTczMDU2Mg%3D%3D&appmsg_token=&x5=0&f=json"
 HEAD = ""
 COOKIE = ""
+favicon_name = "favicon.ico"
 edit_css_name = 'edit.css'
 book_css_name = 'book.css'
 vue_js_name = 'vue.global.js'
 img_static_dir = 'img'
+vue_need_dir_name = "assets"  # vue3依赖文件夹
 image_prefix = 'https://mmbiz.qpic.cn/mmbiz_png/'
 
 # html处理相关

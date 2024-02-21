@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>moviepy：基于 ffmpeg 的视频处理模块</title>
+  <link href="./edit.css" rel="stylesheet">
+</head>
+
+<body class='background'>
+  <div class="wx_temp">
+    <div id="img-content" class="rich_media_wrp">
+
+      <h1 class="rich_media_title " id="activity-name">
+
+        moviepy：基于 ffmpeg 的视频处理模块
+      </h1>
+      <div id="meta_content" class="rich_media_meta_list">
+        <span id="copyright_logo"
+          class="wx_tap_link js_wx_tap_highlight rich_media_meta icon_appmsg_tag appmsg_title_tag weui-wa-hotarea">原创</span>
+        <span class="rich_media_meta rich_media_meta_text">
+          <span role="link" tabindex="0" id="js_author_name"
+            class="wx_tap_link js_wx_tap_highlight rich_media_meta_link weui-wa-hotarea" datarewardsn=""
+            datatimestamp="" datacanreward="0">古明地觉</span>
+        </span>
+
+        <span class="rich_media_meta rich_media_meta_nickname" id="profileBt">
+          <a href="javascript:void(0);" class="wx_tap_link js_wx_tap_highlight weui-wa-hotarea" id="js_name">
+            古明地觉的编程教室 </a>
+          <div id="js_profile_qrcode" aria-hidden="true" class="profile_container" style="display:none;">
+            <div class="profile_inner">
+              <strong class="profile_nickname">古明地觉的编程教室</strong>
+              <img class="profile_avatar" id="js_profile_qrcode_img" src="" alt="">
+
+              <p class="profile_meta">
+                <label class="profile_meta_label">微信号</label>
+                <span class="profile_meta_value">unwind_exception</span>
+              </p>
+
+              <p class="profile_meta">
+                <label class="profile_meta_label">功能介绍</label>
+                <span class="profile_meta_value">Python、Rust 程序猿，你感兴趣的内容我都会写，点个关注吧(#^.^#)</span>
+              </p>
+            </div>
+            <span class="profile_arrow_wrp" id="js_profile_arrow_wrp">
+              <i class="profile_arrow arrow_out"></i>
+              <i class="profile_arrow arrow_in"></i>
+            </span>
+          </div>
+        </span>
+        <span id="meta_content_hide_info">
+          <em id="publish_time" class="rich_media_meta rich_media_meta_text"></em>
+          <em id="js_ip_wording_wrp" class="rich_media_meta rich_media_meta_text" role="option"
+            aria-labelledby="js_a11y_op_ip_wording js_ip_wording" style="display: none;"><span
+              id="js_a11y_op_ip_wording" aria-hidden="true"></span><span aria-hidden="true"
+              id="js_ip_wording"></span></em>
+        </span>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="rich_media_content js_underline_content
+                       autoTypeSetting24psection" id="js_content">
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;color: rgb(34, 34, 34);font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: 0.544px;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'
+          data-mpa-powered-by="yiban.io">
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;vertical-align: bottom;height: auto !important;display: block;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;clear: both;min-height: 1em;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;box-sizing: border-box !important;overflow-wrap: break-word !important;">楔子</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;clear: both;min-height: 1em;color: rgb(34, 34, 34);font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: 0.544px;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;color: rgb(34, 34, 34);font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: 0.544px;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;vertical-align: bottom;height: auto !important;display: block;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><br></p>
+        <p><span style="font-size: 15px;">随着自媒体时代，现在对视频的处理变得越来越常见。我们可以使用 Adobe
+            的一些专业工具，但是效率不高；如果只是对视频进行一些简单的处理，或者视频的数量非常多的话，那么使用专业软件显然就不太适合了。</span></p>
+        <p><span style="font-size: 15px;">而 Python 有一个专门用于处理视频的第三方库：moviepy，可以非常方便地对视频进行一些简单处理，下面我们就来看一看。</span></p>
+        <p><span style="font-size: 15px;">首先是安装：</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;">pip install moviepy -i https://pypi.tuna.tsinghua.edu.cn/simple</span></code></pre>
+        <p><span style="font-size: 15px;">个人推荐安装的时候使用清华源，因为moviepy需要依赖另一个库：imageio_ffmpeg，这个库里面包含了一个 50 多 MB 的 ffmpeg
+            二进制文件，<span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>如果网络不行的话，</span>直接从pypi上拉取会花很长时间。当然安装moviepy的时候，imageio_ffmpeg
+            就顺带安装了。</span></p>
+        <p><span style="font-size: 15px;">从这里我们也可以看到，moviepy 底层依赖 ffmpeg，而ffmpeg是跨平台的，所以 moviepy 也可以在任意平台上使用。</span></p>
+        <p><span style="font-size: 15px;"><br></span></p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;overflow-wrap: break-word !important;box-sizing: border-box !important;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;">moviepy
+                      的简单使用</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><span style="font-size: 15px;"><br></span></p>
+        <p><span style="font-size: 15px;">我们来看 moviepy 都提供了哪些功能，不过在使用之前我们需要一个视频，就使用 you-get 工具从 bilibili 下载一个吧。</span>
+        </p>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.40464547677261614" data-s="300,640" data-type="png" data-w="818" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibqAjgPyhwOPRszFNuXrSyBjLyPUpiceSoFsoTVKqldzRiaricyBgwx_fmt=png.png">
+        </p>
+        <p><span style="font-size: 15px;">下面就使用这个下载的视频进行演示。</span></p>
+        <section data-mpa-template="t" mpa-from-tpl="t">
+          <section
+            style="display: flex;justify-content: center;align-items: center;width: 100%;justify-content: flex-start;padding-left: 18px;"
+            data-mid="" mpa-from-tpl="t">
+            <section style="display: flex;justify-content: center;align-items: center;" data-mid="" mpa-from-tpl="t">
+              <section style="width: 34px;height: 27px;align-self: flex-start;margin-right: -31px;margin-bottom: 6px;"
+                data-mid="" mpa-from-tpl="t"><img class="rich_pages wxw-img" data-ratio="0.8863636363636364"
+                  data-w="132" style="display: block;"
+                  src="img/httpsmmbizqpiccnmmbiz_gifAibHtKxCCgLCnTAhKepFVyGpGhibjqTcSdwgkjdJFkPQarAyasopbcAhxfyFpMeVPXwwx_fmt=gif.png">
+              </section>
+              <section style="text-align: center;" data-mid="" mpa-from-tpl="t">
+                <p style="padding: 0px 10px 0px 28px;font-size: 16px;font-family: PingFangSC-Medium, PingFang SC;font-weight: bold;color: #0F6F5D;line-height: 22px;"
+                  data-mid="">视频截取<br></p>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><span style="font-size: 15px;">如果一个视频比较长，我们可以截取感兴趣的片段。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 调用 `VideoFileClip(文件名)` 即可将视频加载进来</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 并且支持不同的视频格式，比如 flv、mp4 等等</span><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<br style="box-sizing: border-box;">    <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"空城计，但是7Ki7Ki酱酱.mp4"</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 调用subclip方法，传入起始时间和结束时间</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 即可截取视频中的指定部分</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;">video_clip.subclip(): <br style="box-sizing: border-box;">   截取视频全部，相当于没做处理<br style="box-sizing: border-box;">video_clip.subclip(10): <br style="box-sizing: border-box;">   从视频的 `第10秒` 截取到 `结尾`<br style="box-sizing: border-box;">video_clip.subclip(10, -2): <br style="box-sizing: border-box;">   从视频的 `第10秒` 截取到结尾的 `前两秒`<br style="box-sizing: border-box;">video_clip.subclip((1, 35), (3, 10)): <br style="box-sizing: border-box;">   从视频的 `第1分35秒` 截取到 `第3分10秒` <br style="box-sizing: border-box;">video_clip.subclip((1, 2, 18), (2, 1, 34)): <br style="box-sizing: border-box;">   从视频的 `第1小时2分18秒` 截取到 `第2小时1分34秒`<br style="box-sizing: border-box;">"""</span><br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># subclip 会返回一个新的 VideoFileClip 对象</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 所以它支持链式操作</span><br style="box-sizing: border-box;">video_clip = video_clip.subclip(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">30</span>)</span></code></pre>
+        <p><br></p>
+        <section data-mpa-template="t" mpa-from-tpl="t">
+          <section
+            style="display: flex;justify-content: center;align-items: center;width: 100%;justify-content: flex-start;padding-left: 18px;"
+            data-mid="" mpa-from-tpl="t">
+            <section style="display: flex;justify-content: center;align-items: center;" data-mid="" mpa-from-tpl="t">
+              <section style="width: 34px;height: 27px;align-self: flex-start;margin-right: -31px;margin-bottom: 6px;"
+                data-mid="" mpa-from-tpl="t"><img class="rich_pages wxw-img" data-ratio="0.8863636363636364"
+                  data-w="132" style="display: block;"
+                  src="img/httpsmmbizqpiccnmmbiz_gifAibHtKxCCgLCnTAhKepFVyGpGhibjqTcSdwgkjdJFkPQarAyasopbcAhxfyFpMeVPXwwx_fmt=gif.png">
+              </section>
+              <section style="text-align: center;" data-mid="" mpa-from-tpl="t">
+                <p style="padding: 0px 10px 0px 28px;font-size: 16px;font-family: PingFangSC-Medium, PingFang SC;font-weight: bold;color: #0F6F5D;line-height: 22px;"
+                  data-mid="">音量调整</p>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><span style="font-size: 15px;">一个视频，我们也可以调整它的音量。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<br style="box-sizing: border-box;">    <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"空城计，但是7Ki7Ki酱酱.mp4"</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 调整音量，变为原来的0.5</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 同样会返回一个新的对象</span><br style="box-sizing: border-box;">video_clip = video_clip.volumex(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">0.5</span>)</span></code></pre>
+        <p><span style="font-size: 15px;"><br mpa-from-tpl="t"></span></p>
+        <section data-mpa-template="t" mpa-from-tpl="t">
+          <section
+            style="display: flex;justify-content: center;align-items: center;width: 100%;justify-content: flex-start;padding-left: 18px;"
+            data-mid="" mpa-from-tpl="t">
+            <section style="display: flex;justify-content: center;align-items: center;" data-mid="" mpa-from-tpl="t">
+              <section style="width: 34px;height: 27px;align-self: flex-start;margin-right: -31px;margin-bottom: 6px;"
+                data-mid="" mpa-from-tpl="t"><img data-ratio="0.8863636363636364" data-w="132" style="display: block;"
+                  src="img/httpsmmbizqpiccnmmbiz_gifAibHtKxCCgLCnTAhKepFVyGpGhibjqTcSdwgkjdJFkPQarAyasopbcAhxfyFpMeVPXwwx_fmt=gif.png">
+              </section>
+              <section style="text-align: center;" data-mid="" mpa-from-tpl="t">
+                <p style="padding: 0px 10px 0px 28px;font-size: 16px;font-family: PingFangSC-Medium, PingFang SC;font-weight: bold;color: #0F6F5D;line-height: 22px;"
+                  data-mid="">在视频上添加文字</p>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><span style="font-size: 15px;">如果你想在视频里面写上一些内容，moviepy 也是支持的。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<br style="box-sizing: border-box;">    <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"空城计，但是7Ki7Ki酱酱.mp4"</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 做一个文本剪贴板，自定义样式、颜色。</span><br style="box-sizing: border-box;">text_clip = editor.TextClip(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"7ki7ki 棒棒"</span>,<br style="box-sizing: border-box;">                            fontsize=<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">40</span>, color=<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"blue"</span>)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 让文本在屏幕的正中间显示</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 持续10秒，设置透明度为 0.6</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;">屏幕左上角的坐标为 (0, 0)，右下角的坐标为 (屏幕宽度, 屏幕高度)<br style="box-sizing: border-box;">set_position((800, 500)): <br style="box-sizing: border-box;">    显示在800, 500的位置上<br style="box-sizing: border-box;">set_position(("center", "center")): <br style="box-sizing: border-box;">    显示在屏幕的正中央<br style="box-sizing: border-box;">set_position((0.4, 0.6), True): <br style="box-sizing: border-box;">    显示在距离左边百分之40、距离上边百分之60的位置上<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">set_duration(10): 持续10秒<br style="box-sizing: border-box;">set_opacity(0.6): 设置透明度为0.6<br style="box-sizing: border-box;">"""</span><br style="box-sizing: border-box;"><br style="box-sizing: border-box;">text_clip = text_clip.set_position((<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"center"</span>, <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"center"</span>)).\<br style="box-sizing: border-box;">    set_duration(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">10</span>).set_opacity(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">0.8</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 然后把 `文本剪贴板` 贴在视频上</span><br style="box-sizing: border-box;">video_clip = editor.CompositeVideoClip([video_clip, text_clip])</span></code></pre>
+        <p><span style="font-size: 15px;">如果你是 Windows 系统，不出意外的话，当你在执行 editor.TextClip() 的时候，会报出如下错误：</span></p>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.31153388822829964" data-s="300,640" data-type="png" data-w="841" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibInBsAMmhIVzDicsIpasSbcjwmGxbVjdffCZrUIDGWhWiaZgwx_fmt=png.png">
+        </p>
+        <p><br></p>
+        <p><span style="font-size: 15px;">这个错误是由于你的电脑上缺少 ImageMagick 造成的，我们需要去官网下载对应操作系统的 ImageMagick。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;">官网：http://www.imagemagick.org/script/download.php</span></code></pre>
+        <p><span
+            style="font-size: 15px;">下载完之后，安装在指定的目录，然后修改site-packages\moviepy\config_defaults.py，在文件的尾部有如下内容:</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> os<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">FFMPEG_BINARY = os.getenv(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">'FFMPEG_BINARY'</span>, <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">'ffmpeg-imageio'</span>)<br style="box-sizing: border-box;">IMAGEMAGICK_BINARY = os.getenv(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">'IMAGEMAGICK_BINARY'</span>, <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">'auto-detect'</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 把 `IMAGEMAGICK_BINARY = ` 后面的内容</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 换成 ImageMagick 安装路径下 magick.exe 的绝对路径:</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> os<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">FFMPEG_BINARY = os.getenv(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">'FFMPEG_BINARY'</span>, <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">'ffmpeg-imageio'</span>)<br style="box-sizing: border-box;">IMAGEMAGICK_BINARY = <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r'E:\ImageMagick-7.0.10-Q16\magick.exe'</span></span></code></pre>
+        <p><span style="font-size: 15px;">替换完之后，再执行就没有问题了。</span></p>
+        <p><span style="font-size: 15px;">我们将上面的几个部分，组合起来演示一下：</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<br style="box-sizing: border-box;">    <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"空城计，但是7Ki7Ki酱酱.mp4"</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = (<br style="box-sizing: border-box;">    <span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 截取 5 到 20 秒</span><br style="box-sizing: border-box;">    video_clip.subclip(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">5</span>, <span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">20</span>).<br style="box-sizing: border-box;">    <span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 设置音量为原来的 0.8</span><br style="box-sizing: border-box;">    volumex(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">0.8</span>)<br style="box-sizing: border-box;">)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">text_clip = (<br style="box-sizing: border-box;">    editor.TextClip(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"7ki7ki"</span>,<br style="box-sizing: border-box;">                   fontsize=<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">40</span>, color=<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"blue"</span>).<br style="box-sizing: border-box;">    set_position((<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"center"</span>, <span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"center"</span>)).<br style="box-sizing: border-box;">    set_duration(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">10</span>).<br style="box-sizing: border-box;">    set_opacity(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">0.8</span>)<br style="box-sizing: border-box;">)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 把 `文本剪贴板` 贴在视频上</span><br style="box-sizing: border-box;">video_clip = editor.CompositeVideoClip([video_clip, text_clip])<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 然后将视频导出</span><br style="box-sizing: border-box;">video_clip.write_videofile(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"空城计，但是7Ki7Ki酱酱_2.mp4"</span>)</span><br style="box-sizing: border-box;"></code></pre>
+        <p><span style="font-size: 15px;">执行代码，会看到以下输出：<br></span></p>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.273972602739726" data-s="300,640" data-type="png" data-w="876" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibjYYiaiaqMwEiaaDWYsTjicticxCVkhGzOqwpqgDTsDlHGhAwx_fmt=png.png">
+        </p>
+        <p><br></p>
+        <p><span style="font-size: 15px;">表示正在调用 ffmpeg 处理视频，而视频处理完毕大概需要十几秒钟的时间。处理完毕之后，我们打开看一下。</span></p>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.5383920505871725" data-s="300,640" data-type="png" data-w="1107" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibTfLrEicgklmRIXsDkoRsYwkwjwvOkVQYgPIibMliaCycWialZQwx_fmt=png.png">
+        </p>
+        <p><br></p>
+        <p><span style="font-size: 15px;">我们看到此时文字就添加进去了，并且该视频只有15秒，也就是我们截取的 5 到 20 秒的部分。</span></p>
+        <p><span style="font-size: 15px;">总结一下整个流程，首先使用 VideoFileClip 对视频进行读取，得到 VideoFileClip 对象，记作 video_clip。我们可以对这个
+            <span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>video_clip </span>进行任意的操作（剪切、合并、调整亮度、速度、和其它的
+            <span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>video_clip </span>拼接在一起等等）。</span>
+        </p>
+        <p><span style="font-size: 15px;">并且需要注意的是，这些操作是可以链式调用的，因为每一次操作都会得到一个新的 <span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>video_clip</span>，不会影响原来的。我们上面演示了视频的读取、以及指定部分的截取、音量的调整、以及添加文字等等，下面还会介绍更多操作。</span>
+        </p>
+        <p><span style="font-size: 15px;">最后我们调用 video_clip 的 write_videofile 方法，可以将处理之后的视频写入本地。当然也可以使用 pygame，或者
+            jupyter notebook 进行展示。为了方便，我们后面就使用 jupyter notebook。</span></p>
+        <p><span style="font-size: 15px;">但是要清楚，<span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>moviepy
+              处理视频使用的是 ffmpeg，生成文字使用的是 ImageMagick。</span></span></p>
+        <p><br></p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;overflow-wrap: break-word !important;box-sizing: border-box !important;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;">获取视频属性</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><br></p>
+        <p><span style="font-size: 15px;">一个视频，肯定有大小、宽高、fps、时长等属性，那么 moviepy 要如何获取这些属性呢。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"空城计，但是7Ki7Ki酱酱.mp4"</span>)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 获取宽度和高度</span><br style="box-sizing: border-box;">print(video_clip.size)<br style="box-sizing: border-box;">print(video_clip.w, video_clip.h)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;">[2160, 1080]<br style="box-sizing: border-box;">2160 1080<br style="box-sizing: border-box;">"""</span><br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 获取 fps</span><br style="box-sizing: border-box;">print(video_clip.fps)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;">30.0<br style="box-sizing: border-box;">"""</span><br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 获取时长，单位是秒</span><br style="box-sizing: border-box;">print(video_clip.duration)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;">110.92<br style="box-sizing: border-box;">"""</span><br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 获取大小，可以直接使用 os 模块</span><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> os<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 大概 13MB</span><br style="box-sizing: border-box;">size = os.stat(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"空城计，但是7Ki7Ki酱酱.mp4"</span>).st_size<br style="box-sizing: border-box;">print(size)<br style="box-sizing: border-box;">print(size / <span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">1024</span> ** <span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">2</span>)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;">13324402<br style="box-sizing: border-box;">12.70713996887</span></span><span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">207<br style="box-sizing: border-box;">"""</span></code></pre>
+        <p><span style="font-size: 15px;"><br></span></p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;overflow-wrap: break-word !important;box-sizing: border-box !important;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;">视频合成</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;max-width: 100%;outline: 0px;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;overflow-wrap: break-word !important;box-sizing: border-box !important;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><br></p>
+        <p><span style="color: rgb(2, 30, 170);"><strong>视频合成有两种方式：</strong></span></p>
+        <p><span style="font-size: 15px;">1）多个视频按照先后顺序拼接起来，比如一个一分钟和一个两分钟的视频组合起来，变成三分钟。</span></p>
+        <p><span style="font-size: 15px;">2）多个视频在同一个画面上显示。</span></p>
+        <p><strong>先来看看第一种：</strong></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<span style="box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"D:\satori\空城计，但是7Ki7Ki酱酱.mp4"</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 截取10到20秒</span><br style="box-sizing: border-box;">video_clip1 = video_clip.subclip(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">10</span>, <span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">20</span>)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 截取结尾的前两秒</span><br style="box-sizing: border-box;">video_clip2 = video_clip.subclip(<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">-2</span>)<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 然后前后拼接起来</span><br style="box-sizing: border-box;"><span style='white-space: pre-wrap;color: rgb(171, 178, 191);font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(40, 44, 52);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>video_clip</span> = editor.concatenate_videoclips([video_clip1, video_clip2])<br style="box-sizing: border-box;"><span style="box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 使用jupyter进行展示，设置一个宽度</span><br style="box-sizing: border-box;"><span style='white-space: pre-wrap;color: rgb(171, 178, 191);font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(40, 44, 52);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;float: none;display: inline !important;'>video_clip</span>.ipython_display(width=<span style="box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">360</span>)</span></code></pre>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.8837837837837837" data-s="300,640" data-type="png" data-w="740" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibicsqCWPIlPGWoNNRyIetrzeFLurXvZoUhvzZibLZgadwwx_fmt=png.png">
+        </p>
+        <p><span style="font-size: 15px;">执行完之后，视频就展示在 jupyter 上了，而且是两个视频拼接在一起的，总共 12 秒钟。</span><span
+            style="font-size: 15px;">此外 </span><span style="font-size: 15px;">c</span><span
+            style="font-size: 15px;">oncatenate_v</span><span style="font-size: 15px;">ideoclip</span><span
+            style="font-size: 15px;">s 中</span><span style="font-size: 15px;">还可以指定一个transiti</span><span
+            style="font-size: 15px;">on参数</span><span style="font-size: 15px;">(也是一个VideoFileClip对象)</span><span
+            style="font-size: 15px;">，作为衔接之间的过渡。</span></p>
+        <p><span style="font-size: 15px;">还是比较简单的，假设我们有 5 个视频，如果只是简单的前后拼接就可以这么做。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">videos = [<span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"1.mp4"</span>, <span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"2.mp4"</span>, <span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"3.flv"</span>,<br style="box-sizing: border-box;">          <span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"4.mp4"</span>, <span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"5.flv"</span>]<br style="box-sizing: border-box;">video_clips = []<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">for</span> video <span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">in</span> videos:<br style="box-sizing: border-box;">    video_clips.append(editor.VideoFileClip(video))<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">editor.concatenate_videoclips(<br style="box-sizing: border-box;">    video_clips).write_videofile(<span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"xxx.mp4"</span>)</span></code></pre>
+        <p><span style="font-size: 15px;">这里值得一提的是，多个 video_clip 进行拼接，并不需要这些 <span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;display: inline !important;float: none;'>video_</span><span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;display: inline !important;float: none;'>clip </span>之间有相同的尺寸、时长什么的，仅仅是将它们按照顺序拼接起来而已。</span>
+        </p>
+        <p><span style="font-size: 15px;">另外，当你用 jupyter 进行展示时，视频不要过长，否则报错。当然你也可以给 ipython_display 函数传递一个 maxduration
+            参数，让它支持显示更大时长的视频文件。但是注意：如果文件过大，在 jupyter 上可能会耗光你的内存。</span></p>
+        <p><strong>然后是第二种拼接</strong><br></p>
+        <p><span style="font-size: 15px;">有多个视频，可以让它们在同一个画面上显示。</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># margin: 设置外边距</span><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<br style="box-sizing: border-box;">    <span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"D:\satori\空城计，但是7Ki7Ki酱酱.mp4"</span>).margin(<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">10</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 截取 10 到 20 秒</span><br style="box-sizing: border-box;">video_clip1 = video_clip.subclip(<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">10</span>, <span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">20</span>)<br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># x 轴镜像</span><br style="box-sizing: border-box;">video_clip2 = video_clip1.fx(editor.vfx.mirror_x)<br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># y 轴镜像</span><br style="box-sizing: border-box;">video_clip3 = video_clip1.fx(editor.vfx.mirror_y)<br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># resize: 等比缩放</span><br style="box-sizing: border-box;">video_clip4 = video_clip1.resize(<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">0.5</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 列表里面有两个列表，所以会将屏幕上下等分</span><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 上半部分显示 video_clip1, video_clip2</span><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 下半部分显示video_clip3, video_clip4</span><br style="box-sizing: border-box;">video_clip = editor.clips_array([[video_clip1, video_clip2],<br style="box-sizing: border-box;">                                 [video_clip3, video_clip4]])<br style="box-sizing: border-box;">video_clip.ipython_display(width=<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">600</span>)</span></code></pre>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.5506849315068493" data-s="300,640" data-type="png" data-w="730" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibKZwJLUfUGlsLuoZoVWxkrEonicRYRQqDtuoabErPOTBgrtEvQwx_fmt=png.png">
+        </p>
+        <p><br></p>
+        <p><span style="font-size: 15px;">所以 concatenate_videoclips 是将多个视频前后拼接，而 clips_array 则是将多个视频同时显示在一个画面里面。</span>
+        </p>
+        <p><br></p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;">修改视频属性</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><br></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = editor.VideoFileClip(<br style="box-sizing: border-box;">    <span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"D:\satori\空城计，但是7Ki7Ki酱酱.mp4"</span>).subclip(<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">10</span>, <span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">20</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clip = (<br style="box-sizing: border-box;">    <span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 调整尺寸，保持比例</span><br style="box-sizing: border-box;">    video_clip.fx(editor.vfx.resize, width=<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">460</span>)<br style="box-sizing: border-box;">        <span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 倍数播放</span><br style="box-sizing: border-box;">        .fx(editor.vfx.speedx, <span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">2</span>)<br style="box-sizing: border-box;">        <span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 画面调暗</span><br style="box-sizing: border-box;">        .fx(editor.vfx.colorx, <span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">0.5</span>)<br style="box-sizing: border-box;">)<br style="box-sizing: border-box;">video_clip.ipython_display(width=<span style="font-size: 13px;box-sizing: border-box;color: rgb(209, 154, 102);line-height: 26px;">600</span>)</span></code></pre>
+        <p style="text-align: center;margin-bottom: 0em;"><img class="rich_pages wxw-img" data-galleryid=""
+            data-ratio="0.5507246376811594" data-s="300,640" data-type="png" data-w="690" style=""
+            src="img/httpsmmbizqpiccnsz_mmbiz_pngibibwulXslsFLJTrytUqJpfjEGOZibWUVCAuCFDlwAqHynbqAeWsRRfibHAtwguiaFNCvgQYiayvpdJwwx_fmt=png.png">
+        </p>
+        <p><span style="font-size: 15px;">虽然截取了 10 秒钟，但是 2 倍数播放，所以变成了 5 秒钟。</span></p>
+        <p><br></p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;">视频音频合成</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p><br></p>
+        <p><span style="font-size: 15px;">假设有一个视频 A 和一个视频 B，现在要将视频 B 的音频和视频 A 组合起来，怎么做呢？</span></p>
+        <pre
+          style='box-sizing: border-box;font-size: 16px;font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;margin-top: 10px;margin-bottom: 10px;overflow: auto;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;color: rgb(0, 0, 0);font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: left;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(255, 255, 255);text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'><code style='box-sizing: border-box;font-size: 12px;font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace;display: -webkit-box;overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);background: rgb(40, 44, 52);border-radius: 5px;'><span style="font-size: 13px;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">from</span> moviepy <span style="font-size: 13px;box-sizing: border-box;color: rgb(198, 120, 221);line-height: 26px;">import</span> editor<br style="box-sizing: border-box;"><br style="box-sizing: border-box;">video_clipA = editor.VideoFileClip(<span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"A.mp4"</span>)<br style="box-sizing: border-box;">video_clipB = editor.VideoFileClip(<span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">r"B.mp4"</span>)<br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 获取 B 的音频</span><br style="box-sizing: border-box;">audioB = video_clipB.audio<br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(152, 195, 121);line-height: 26px;">"""<br style="box-sizing: border-box;"># 如果已经是音频格式，那么也可以直接加载<br style="box-sizing: border-box;">audioB = editor.AudioFileClip("b.mp3")<br style="box-sizing: border-box;">"""</span><br style="box-sizing: border-box;"><br style="box-sizing: border-box;"><span style="font-size: 13px;box-sizing: border-box;color: rgb(92, 99, 112);font-style: italic;line-height: 26px;"># 将 B 的音频和 A 组合起来</span><br style="box-sizing: border-box;">video_clipA = video_clipA.set_audio(audioB)</span></code></pre>
+        <p><span style="font-size: 15px;"><br></span></p>
+        <p><br></p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px -36px 0px 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 26px;height: 55px;z-index: 1;visibility: visible;">
+                  <img class="rich_pages wxw-img" data-ratio="2.1153846153846154" data-type="png" data-w="52"
+                    style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 52px !important;"
+                    src="img/HlNkQjetfwiaeGeibibSRBQYAFiciaqjicvERnwdOiatCCicrHmdoZANHLuqFyiawknQEaRLFmLeiazfAwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 45px;height: 45px;background: rgba(255, 238, 241, 0.56);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -12px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;text-align: center;visibility: visible;">
+                  <p data-mid=""
+                    style='margin: 0px;padding: 0px 12px 0px 18px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;font-family: PingFangSC-Medium, "PingFang SC";font-weight: bold;line-height: 22px;border-bottom: 1px solid rgb(109, 85, 75);visibility: visible;'>
+                    <span
+                      style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;color: rgb(217, 33, 66);visibility: visible;font-size: 20px;">小结</span>
+                  </p>
+                </section>
+                <section data-mid="" mpa-from-tpl="t"
+                  style="margin: 0px 0px 0px -8px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 9px;height: 9px;background: rgba(255, 238, 241, 0.88);border-radius: 50%;visibility: visible;">
+                  <br
+                    style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style='margin: 0px 0px 0em;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 1.6em;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <br mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;visibility: visible;">
+        </p>
+        <section data-mpa-template="t" mpa-from-tpl="t"
+          style='margin: 0px 0px 0em;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;outline: 0px;color: rgb(34, 34, 34);letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;caret-color: rgba(0, 0, 0, 0);background-color: rgb(255, 255, 255);visibility: visible;'>
+          <section data-mid="" mpa-from-tpl="t"
+            style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;width: 578px;visibility: visible;">
+            <section data-mid="" mpa-from-tpl="t"
+              style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;display: flex;justify-content: center;align-items: center;visibility: visible;">
+              <section data-mid="" mpa-from-tpl="t"
+                style="margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;outline: 0px;width: 190px;height: 16px;visibility: visible;">
+                <img class="rich_pages wxw-img" data-ratio="0.08421052631578947" data-type="png" data-w="380"
+                  style="margin: 0px;padding: 0px;max-width: 100%;height: auto !important;overflow-wrap: break-word !important;vertical-align: bottom;outline: 0px;display: block;box-sizing: border-box !important;visibility: visible !important;width: 380px !important;"
+                  src="img/iaFpVHVDePrcTvQGXzzWwicpjNAyzOuURnfYBeoHZVItuAIQFOohzNYVABcPcHCZeOtMomUILegwx_fmt=png&amp;wxfrom=&amp;wx_lazy=&amp;wx_co=.png">
+              </section>
+            </section>
+          </section>
+        </section>
+        <p
+          style="margin: 0px 0px 24px;padding: 0px;clear: both;min-height: 1em;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;">
+          <br
+            style='margin: 0px;padding: 0px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 17px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;'>
+        </p>
+        <p><span style="font-size: 15px;">以上就是 moviepy 的一些基本用法，通过 moviepy 可以对视频做一些简单的批处理。至于视频（以及音频）背后的原理就是一门复杂的学问了，<span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;display: inline !important;float: none;'>有兴趣的话可以深入研究</span><span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;display: inline !important;float: none;'>一</span><span
+              style='color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-align: justify;text-indent: 0px;text-transform: none;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;display: inline !important;float: none;'>下，</span>现在短视频那么火，相关的技术人员也比较短缺，所以前景还是很不错的。</span><br>
+        </p>
+      </div>
+
+      <script type="text/javascript" nonce="1302937036" reportloaderror>
+        var first_sceen__time = (+new Date());
+        if ("" == 1 && document.getElementById('js_content')) {
+          document.getElementById('js_content').addEventListener("selectstart", function (e) { e.preventDefault(); });
+        }
+      </script>
+    </div>
+
+  </div>
+  <script>
+    // 监听来自父页面的消息
+    // window.addEventListener('message', event => {
+    //   if (event.data === 'save_scroll_position') {
+    //     // 获取滚动位置并存储起来
+    //     const scrollPosition = { scrollX: window.scrollX, scrollY: window.scrollY };
+    //     localStorage.setItem(document.title + "_scroll_position", JSON.stringify(scrollPosition));
+    //   }
+    // }, false);
+    // 例如，恢复之前的滚动位置
+    const storedPosition = localStorage.getItem(document.title + "_scroll_position");
+    if (storedPosition) {
+      const { scrollX, scrollY } = JSON.parse(storedPosition);
+      window.scrollTo(scrollX, scrollY);
+    };
+    window.addEventListener('beforeunload', function (event) {
+      // 在这里执行清理操作
+      // console.log('beforeunload:页面即将被关闭或切换');
+      // 注意：在大多数现代浏览器中，自定义的警告信息将不会被显示给用户
+      const scrollPosition = { scrollX: window.scrollX, scrollY: window.scrollY };
+      localStorage.setItem(document.title + "_scroll_position", JSON.stringify(scrollPosition));
+    });
+    // 被提醒弃用 
+    // window.addEventListener('unload', function (event) {
+    //   // 页面正在被关闭或切换
+    //   // 执行必要的清理操作
+    //   console.log('unload:页面即将被关闭或切换');
+    // });
+  </script>
+</body>
+
+</html>

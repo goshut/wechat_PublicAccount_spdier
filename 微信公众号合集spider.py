@@ -1,5 +1,6 @@
 import json
-from shutil import copyfile
+import functools
+from shutil import copyfile, copytree
 
 from html处理 import *
 from spider import *
@@ -7,6 +8,10 @@ from tools import *
 
 
 class WxGzhSpider:
+    file_dir = os.path.dirname(__file__)
+    project_dir = file_dir
+    templates_dir = f"{project_dir}/templates"
+
     def __init__(self, url):
         self.wxset_url = url
         self.album_id = ''
@@ -17,6 +22,13 @@ class WxGzhSpider:
         # self.cookie = COOKIE
         self.__get_album_id()
         # self.__n_roll_list = 0
+        # 为了方便git忽略..统一将输出文件夹放在output
+        self.output_dir = f"{WxGzhSpider.project_dir}/output"
+        mkdir(self.output_dir)
+
+    @functools.cached_property
+    def save_dir(self):
+        return f"{self.output_dir}/{self.dir_name}"
 
     def __get_album_id(self):
         re_str = r'album_id=(.*?)&'  # 要改成非贪婪加上'?':.*?
@@ -35,6 +47,7 @@ class WxGzhSpider:
         # print(etree.tounicode(html_tree, method='html'))
         self.dir_name = html_tree.xpath(dir_name_xpath)[0]
         self.dir_name = clean_str(self.dir_name)
+        # self.dir_name = f"{self.output_dir}/{clean_str(self.dir_name)}"
         # 判断正倒序 sign=0表示正序 sign=1表示倒序
         sign = 0 if html_tree.xpath(positive_order_xpath) else 1
         # 得到合集关键数据
@@ -88,10 +101,11 @@ class WxGzhSpider:
     #     return html_tree
 
     def init_dir(self):
-        mkdir(self.dir_name)
-        copyfile(edit_css_name, f'{self.dir_name}/{edit_css_name}')
-        copyfile(book_css_name, f'{self.dir_name}/{book_css_name}')
-        copyfile(vue_js_name, f'{self.dir_name}/{vue_js_name}')
+        mkdir(self.save_dir)
+        copyfile(f"{WxGzhSpider.templates_dir}/{edit_css_name}", f'{self.save_dir}/{edit_css_name}')
+        # copyfile(book_css_name, f'{self.save_dir}/{book_css_name}')
+        copytree(f"{WxGzhSpider.templates_dir}/{vue_need_dir_name}", f'{self.save_dir}/{vue_need_dir_name}')
+        copyfile(f"{WxGzhSpider.templates_dir}/{favicon_name}", f'{self.save_dir}/{favicon_name}')
         return
 
     def test(self):
@@ -100,32 +114,37 @@ class WxGzhSpider:
         self.init_dir()
         for index, i in enumerate(self.articleurl):
             if index == 3:
-                title = write_html(self.dir_name, get_url_data(url=i))
-                self.articlinfolist.append({
-                    'name': title,
-                    'path': f'{title}.html'
-                })
+                title = write_html(self.save_dir, get_url_data(url=i))
+                # self.articlinfolist.append({
+                #     'name': title,
+                #     'path': f'{title}.html'
+                # })
+                self.articlinfolist.append(title)
                 print(f'{index}. {i}:写入完毕')
                 # time.sleep(1)
-        writ_index_html(self.dir_name, self.articlinfolist)
+        writ_index_html(self.save_dir, self.articlinfolist)
 
     def run(self):
         self.get_articleurl_list()
         # print(self.articleurl)
         self.init_dir()
         for index, i in enumerate(self.articleurl):
-            title = write_html(self.dir_name, get_url_data(url=i))
-            self.articlinfolist.append({
-                'name': title,
-                'path': f'{title}.html'
-            })
+            title = write_html(self.save_dir, get_url_data(url=i))
+            # self.articlinfolist.append({
+            #     'name': title,
+            #     'path': f'{title}.html'
+            # })
+            self.articlinfolist.append(title)
             print(f'{index}. {i}:写入完毕')
             # time.sleep(1)
-        writ_index_html(self.dir_name, self.articlinfolist)
+        writ_index_html(self.save_dir, self.articlinfolist)
 
 
 if __name__ == '__main__':
-    url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2554548509648060418&scene=173&from_msgid=2247510881&from_itemidx=1&count=3&nolastread=1#wechat_redirect'
+    # python web 开发
+    # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2815412073764454403&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FHQ0mbeb6bTik3cwg6skyLg&nolastread=1#wechat_redirect'
+    # python奇奇怪怪
+    url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2735429956649844737&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FD1_WLV3odUwA12_E3PssPg&nolastread=1#wechat_redirect'
     spider_test = WxGzhSpider(url)
     spider_test.run()
     # spider_test.test()

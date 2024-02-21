@@ -1,7 +1,9 @@
-# coding=utf-8
-from 微信_公众号.spider import *
-from 微信_公众号.config import *
-from 微信_公众号.tools import *
+"""# coding=utf-8
+图片提取测试
+"""
+from spider import *
+from config import *
+from tools import *
 
 str1 = '''
 <div id="img-content" class="rich_media_wrp">
