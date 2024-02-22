@@ -1,3 +1,4 @@
+import asyncio
 import os.path
 
 from jinja2 import Environment, FileSystemLoader
@@ -11,6 +12,8 @@ project_dir = file_dir
 env = Environment(loader=FileSystemLoader(f"{project_dir}/templates"))
 template = env.get_template("template.html")
 index_template = env.get_template("vue_重构_index_template.html")
+client = AySpider()
+ay_tasks = []
 
 
 def get_article(html_date, save_dir_path):
@@ -91,6 +94,66 @@ def writ_index_html(save_dir_path, article_info_list):
     with open(f'{save_dir_path}/index.html', 'w', encoding='utf-8') as f:
         f.write(new_html)
     print(f"{book_name} index.html写入完毕!")
+
+
+# 异步重构版本
+# 真恶心啊,异步是有传染性吗?整个调用链全异步化了
+####################
+####################
+
+async def ay_write_html(save_dir_path, html_date):
+    title, article = await ay_get_article(html_date, save_dir_path)
+    data = merge_template(title, article)
+    same_name[title] = same_name.get(title, 0) + 1
+    if same_name[title] > 1:  # 如果有相同名字的html文件了,加上后缀
+        title = f'{title}{same_name[title]}'
+    with open(f'{save_dir_path}/{title}.html', 'w', encoding="utf-8") as f:
+        f.write(data)
+    return title
+
+
+async def ay_get_article(html_date, save_dir_path):
+    """
+    :param html_date: 一个html文档utf-8编码
+    :return:标题和微信公众号文章有用的部分..
+    """
+    # print(html_date)
+    html_tree = etree.HTML(html_date)
+    article_tree = html_tree.xpath(DATE_PATH)[0]
+    laji_tree = article_tree.xpath(LAJI_PATH)[0]
+    del laji_tree.attrib["style"]  # 垃圾属性会隐藏....
+    title = article_tree.xpath(TITLE_PATH)[0].strip()
+    title = clean_str(title)
+    # 先进行图片处理
+    article_tree = await ay_img_deal(article_tree, save_dir_path)
+    article = etree.tounicode(article_tree, method="html")
+    return title, article
+
+
+async def ay_img_deal(tree_, save_dir_path):
+    global ay_tasks
+    img_dir_path = f'{save_dir_path}/{img_static_dir}'
+    mkdir(img_dir_path)
+    image_list = tree_.xpath(image_xpath)
+    for index, i in enumerate(image_list):
+        if image_url := i.attrib.get('data-src'):
+            img_name = get_image_name(image_url)
+            file_name = f'{img_dir_path}/{img_name}.png'
+            # 判断imag是否存在
+            if not os.path.exists(file_name):
+                # writ_get_data(url=image_url, file_name=file_name)
+                ay_tasks.append(asyncio.create_task(ay_writ_get_data(url=image_url, file_name=file_name)))
+            file_name_of_html = f'{img_static_dir}/{img_name}.png'
+            i.attrib['src'] = file_name_of_html
+            del i.attrib['data-src']
+    # await asyncio.gather(*ay_tasks)
+    return tree_
+
+
+async def ay_writ_get_data(url, file_name):
+    response = await client.get(url=url)
+    with open(file_name, 'wb') as f:
+        f.write(response.content)
 
 
 if __name__ == '__main__':

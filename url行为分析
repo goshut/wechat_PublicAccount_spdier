@@ -7,3 +7,8 @@ https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&a
 
 album_id:
 begin_msgid:"msgid": "2247485517"
+
+###########
+###########
+2024.2.22
+ROLL_URL行为发生改变,出现不会传输标题清单列表的情况

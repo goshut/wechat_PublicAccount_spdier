@@ -1,7 +1,7 @@
 import json
-import functools
+# import functools
 from shutil import copyfile, copytree
-
+from time_code import *
 from html处理 import *
 from spider import *
 from tools import *
@@ -12,8 +12,8 @@ class WxGzhSpider:
     project_dir = file_dir
     templates_dir = f"{project_dir}/templates"
 
-    def __init__(self, url):
-        self.wxset_url = url
+    def __init__(self, _url):
+        self.wxset_url = _url
         self.album_id = ''
         self.articleurl = []
         self.articlinfolist = []
@@ -25,17 +25,21 @@ class WxGzhSpider:
         # 为了方便git忽略..统一将输出文件夹放在output
         self.output_dir = f"{WxGzhSpider.project_dir}/output"
         mkdir(self.output_dir)
+        # 异步请求网络
+        self.client = AySpider()
 
-    @functools.cached_property
+    # @functools.cached_property
+    @property
     def save_dir(self):
         return f"{self.output_dir}/{self.dir_name}"
 
     def __get_album_id(self):
-        re_str = r'album_id=(.*?)&'  # 要改成非贪婪加上'?':.*?
+        re_str = r'album_id=([\d]+)'  # 要改成非贪婪加上'?':.*?
         res = re.search(re_str, self.wxset_url)
         if res:
             self.album_id = res.group(1)
         else:
+            print("__get_album_id:退出")
             exit(-1)
 
     def get_articleurl_list(self):
@@ -102,10 +106,14 @@ class WxGzhSpider:
 
     def init_dir(self):
         mkdir(self.save_dir)
-        copyfile(f"{WxGzhSpider.templates_dir}/{edit_css_name}", f'{self.save_dir}/{edit_css_name}')
+        copyfile(f"{WxGzhSpider.templates_dir}/{edit_css_name}",
+                 f'{self.save_dir}/{edit_css_name}')
         # copyfile(book_css_name, f'{self.save_dir}/{book_css_name}')
-        copytree(f"{WxGzhSpider.templates_dir}/{vue_need_dir_name}", f'{self.save_dir}/{vue_need_dir_name}')
-        copyfile(f"{WxGzhSpider.templates_dir}/{favicon_name}", f'{self.save_dir}/{favicon_name}')
+        copytree(f"{WxGzhSpider.templates_dir}/{vue_need_dir_name}",
+                 f'{self.save_dir}/{vue_need_dir_name}',
+                 dirs_exist_ok=True)
+        copyfile(f"{WxGzhSpider.templates_dir}/{favicon_name}",
+                 f'{self.save_dir}/{favicon_name}')
         return
 
     def test(self):
@@ -139,12 +147,37 @@ class WxGzhSpider:
             # time.sleep(1)
         writ_index_html(self.save_dir, self.articlinfolist)
 
+    async def ay_deal_articleurl_data(self, _url, index):
+        response = await self.client.get(url=_url)
+        print(f'{index}. {_url}:写入完毕')
+        return await ay_write_html(self.save_dir, response.text)
+
+    async def async_run(self):
+        self.get_articleurl_list()
+        # print(self.articleurl)
+        self.init_dir()
+        async with self.client:
+            self.articlinfolist = await asyncio.gather(
+                *[self.ay_deal_articleurl_data(i, index) for index, i in enumerate(self.articleurl)])
+            writ_index_html(self.save_dir, self.articlinfolist)
+            await asyncio.gather(*ay_tasks)
+
 
 if __name__ == '__main__':
-    # python web 开发
-    # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2815412073764454403&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FHQ0mbeb6bTik3cwg6skyLg&nolastread=1#wechat_redirect'
-    # python奇奇怪怪
-    url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2735429956649844737&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FD1_WLV3odUwA12_E3PssPg&nolastread=1#wechat_redirect'
-    spider_test = WxGzhSpider(url)
-    spider_test.run()
-    # spider_test.test()
+    with CodeTimer():
+        # python web 开发
+        # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2815412073764454403&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FHQ0mbeb6bTik3cwg6skyLg&nolastread=1#wechat_redirect'
+        # python奇奇怪怪
+        # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2735429956649844737&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FD1_WLV3odUwA12_E3PssPg&nolastread=1#wechat_redirect'
+        # 网络协议与操作系统
+        # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2411327902559666177&scene=21#wechat_redirect'
+        # redis 这个网址直接-1滚出,连报错都没有!!!!!
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2554548509648060418#wechat_redirect"
+        # 大数据组件  ...只有一个页面,列表url只有1???
+        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2608550406499041280&scene=21#wechat_redirect"
+        # python的背后
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2516744157244129282#wechat_redirect"
+        spider_test = WxGzhSpider(url)
+        # spider_test.run()
+        asyncio.run(spider_test.async_run())
+        # spider_test.test()
