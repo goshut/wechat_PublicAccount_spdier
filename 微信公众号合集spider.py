@@ -55,9 +55,16 @@ class WxGzhSpider:
         # 判断正倒序 sign=0表示正序 sign=1表示倒序
         sign = 0 if html_tree.xpath(positive_order_xpath) else 1
         # 得到合集关键数据
-        data = html_tree.xpath(articleurl_list_xpath)[0]
-        first_begin_msgid = data.attrib["data-msgid"]
-        self.articleurl.append(data.attrib["data-link"])
+        articleurl_list = html_tree.xpath(articleurl_list_xpath)
+        i = {}
+        for i in articleurl_list:
+            self.articleurl.append(i.attrib["data-link"])
+        else:
+            first_begin_msgid = i.get("data-msgid", None)
+        # data = html_tree.xpath(articleurl_list_xpath)[0]
+        # first_begin_msgid = data.attrib["data-msgid"]
+        # self.articleurl.append(data.attrib["data-link"])
+
         self.get_roll_json(first_begin_msgid)
         if sign:
             self.articleurl.reverse()
