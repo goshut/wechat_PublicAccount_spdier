@@ -1,6 +1,10 @@
+import asyncio
 import json
 # import functools
 from shutil import copyfile, copytree
+
+import httpx
+
 from time_code import *
 from html处理 import *
 from spider import *
@@ -156,7 +160,12 @@ class WxGzhSpider:
 
     async def ay_deal_articleurl_data(self, _url, index):
         response = await self.client.get(url=_url)
-        print(f'{index}. {_url}:写入完毕')
+        # response = httpx.get(url)
+        # print("\n" * 3)
+        print(response.status_code)
+        # print(response.headers)
+        # print(response.http_version)  # HTTP/2
+        print(f'{index}. {_url}:正在写入')
         return await ay_write_html(self.save_dir, response.text)
 
     async def async_run(self):
@@ -167,7 +176,9 @@ class WxGzhSpider:
             self.articlinfolist = await asyncio.gather(
                 *[self.ay_deal_articleurl_data(i, index) for index, i in enumerate(self.articleurl)])
             writ_index_html(self.save_dir, self.articlinfolist)
-            await asyncio.gather(*ay_tasks)
+            all_tasks = asyncio.all_tasks()
+            all_tasks.discard(asyncio.current_task())
+            if all_tasks: await asyncio.wait(all_tasks)
 
 
 if __name__ == '__main__':
@@ -179,11 +190,17 @@ if __name__ == '__main__':
         # 网络协议与操作系统
         # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2411327902559666177&scene=21#wechat_redirect'
         # redis 这个网址直接-1滚出,连报错都没有!!!!!
-        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2554548509648060418#wechat_redirect"
+        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2554548509648060418#wechat_redirect"
         # 大数据组件  ...只有一个页面,列表url只有1???
-        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2608550406499041280&scene=21#wechat_redirect"
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2608550406499041280&scene=21#wechat_redirect"
         # python的背后
         # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2516744157244129282#wechat_redirect"
+        # cython
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2513963764346486784#wechat_redirect"
+        # rust
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2583473431749296129&scene=21#wechat_redirect"
+        # mysql
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2432737848694046721#wechat_redirect"
         spider_test = WxGzhSpider(url)
         # spider_test.run()
         asyncio.run(spider_test.async_run())

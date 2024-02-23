@@ -13,7 +13,9 @@ env = Environment(loader=FileSystemLoader(f"{project_dir}/templates"))
 template = env.get_template("template.html")
 index_template = env.get_template("vue_重构_index_template.html")
 client = AySpider()
-ay_tasks = []
+
+
+# ay_tasks = []
 
 
 def get_article(html_date, save_dir_path):
@@ -117,10 +119,15 @@ async def ay_get_article(html_date, save_dir_path):
     :param html_date: 一个html文档utf-8编码
     :return:标题和微信公众号文章有用的部分..
     """
-    # print(html_date)
+
     html_tree = etree.HTML(html_date)
-    article_tree = html_tree.xpath(DATE_PATH)[0]
-    laji_tree = article_tree.xpath(LAJI_PATH)[0]
+    try:
+        article_tree = html_tree.xpath(DATE_PATH)[0]
+        laji_tree = article_tree.xpath(LAJI_PATH)[0]
+    except Exception as e:
+        print(html_date)
+        print(e, end="**********************\n" * 3)
+        return "no_title", "no_article"
     del laji_tree.attrib["style"]  # 垃圾属性会隐藏....
     title = article_tree.xpath(TITLE_PATH)[0].strip()
     title = clean_str(title)
@@ -142,7 +149,8 @@ async def ay_img_deal(tree_, save_dir_path):
             # 判断imag是否存在
             if not os.path.exists(file_name):
                 # writ_get_data(url=image_url, file_name=file_name)
-                ay_tasks.append(asyncio.create_task(ay_writ_get_data(url=image_url, file_name=file_name)))
+                # ay_tasks.append(asyncio.create_task(ay_writ_get_data(url=image_url, file_name=file_name)))
+                asyncio.create_task(ay_writ_get_data(url=image_url, file_name=file_name))
             file_name_of_html = f'{img_static_dir}/{img_name}.png'
             i.attrib['src'] = file_name_of_html
             del i.attrib['data-src']
