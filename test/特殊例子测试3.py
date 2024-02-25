@@ -1221,12 +1221,13 @@ def t():
     else:
         # if i: first_begin_msgid = i.attrib["data-msgid"]
         first_begin_msgid = i.get("data-msgid", None)
+        itemidx = i.get("data-itemidx", 1)
 
     # data = html_tree.xpath(articleurl_list_xpath)[0]
     # first_begin_msgid = data.attrib["data-msgid"]
     # articleurl.append(data.attrib["data-link"])
     # get_roll_json(first_begin_msgid)
-    url = ROLL_URL.format(begin_msgid=first_begin_msgid, album_id=album_id)
+    url = ROLL_URL.format(begin_msgid=first_begin_msgid, album_id=album_id, itemidx=itemidx)
     if sign:
         articleurl.reverse()
     print(url)

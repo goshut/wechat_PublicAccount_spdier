@@ -1,5 +1,5 @@
 URL = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2206970536067497985&scene=173&from_msgid=2247493173&from_itemidx=1&count=3&nolastread=1#wechat_redirect"
-ROLL_URL = "https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=Mzg3NTczMDU2Mg==&album_id={album_id}&count=20&begin_msgid={begin_msgid}&begin_itemidx=1&uin=&key=&pass_ticket=&wxtoken=&devicetype=&clientversion=&__biz=Mzg3NTczMDU2Mg%3D%3D&appmsg_token=&x5=0&f=json"
+ROLL_URL = "https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=Mzg3NTczMDU2Mg==&album_id={album_id}&count=20&begin_msgid={begin_msgid}&begin_itemidx={itemidx}&uin=&key=&pass_ticket=&wxtoken=&devicetype=&clientversion=&__biz=Mzg3NTczMDU2Mg%3D%3D&appmsg_token=&x5=0&f=json"
 HEAD = ""
 COOKIE = ""
 favicon_name = "favicon.ico"

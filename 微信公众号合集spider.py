@@ -66,18 +66,19 @@ class WxGzhSpider:
             self.articleurl.append(i.attrib["data-link"])
         else:
             first_begin_msgid = i.get("data-msgid", None)
+            itemidx = i.get("data-itemidx", 1)
         # data = html_tree.xpath(articleurl_list_xpath)[0]
         # first_begin_msgid = data.attrib["data-msgid"]
         # self.articleurl.append(data.attrib["data-link"])
 
-        self.get_roll_json(first_begin_msgid)
+        self.get_roll_json(first_begin_msgid, itemidx)
         if sign:
             self.articleurl.reverse()
 
-    def get_roll_json(self, begin_msgid):
+    def get_roll_json(self, begin_msgid, itemidx=1):
         # print(self.album_id)
         # response = requests.get(url=ROLL_URL.format(begin_msgid=begin_msgid))
-        url = ROLL_URL.format(begin_msgid=begin_msgid, album_id=self.album_id)
+        url = ROLL_URL.format(begin_msgid=begin_msgid, album_id=self.album_id, itemidx=itemidx)
         # print(url)
         text = get_url_data(url=url)
         # print(text)
@@ -96,15 +97,17 @@ class WxGzhSpider:
             if type(article_list) is list:
                 [self.articleurl.append(i["url"]) for i in article_list]
                 next_begin_msgid = article_list[-1]["msgid"]
+                itemidx = article_list[-1]["itemidx"]
             # 如果是dict的情况
             elif type(article_list) is dict:
                 self.articleurl.append(article_list["url"])
                 next_begin_msgid = article_list["msgid"]
+                itemidx = article_list["itemidx"]
         # 没有了结束
         else:
             # print(f"url结束:{url}")
             return 0
-        self.get_roll_json(next_begin_msgid)
+        self.get_roll_json(next_begin_msgid, itemidx)
 
     # @staticmethod
     # def get_url_data(url):
@@ -170,6 +173,9 @@ class WxGzhSpider:
         title, article = "no_title", "no_article"
         tries = 5
         deal_ok_sign = True
+        res_tulble = None
+        response = None
+        i = 0
         for i in range(tries):
             response = await self.client.get(url=_url)
             # response = httpx.get(url)
@@ -182,7 +188,7 @@ class WxGzhSpider:
                 break
             else:
                 print(response.status_code)
-                print(f"获取{_url}失败,第{i+1}次尝试重试.")
+                print(f"获取{_url}失败,第{i + 1}次尝试重试.")
                 # 这种情况是异步获取速度太快,微信服务器反应不过来,就用一个垃圾页面来糊弄...当然也有可能是防御措施..但这未免也太弱了...
                 # 5次失败后...就创建一个空页面以后解决
                 if i < tries:
@@ -193,10 +199,10 @@ class WxGzhSpider:
 
         # 输出处理结果信息
         if not deal_ok_sign:
-            print(response.text)
+            if response: print(response.text)
             print(f"{index}. {_url} :处理失败")
         elif i > 0:
-            print(f"{index}. 在第{i+1}次尝试成功,处理完成")
+            print(f"{index}. 在第{i + 1}次尝试成功,处理完成")
         else:
             print(f"{index}. 处理完成")
         return await ay_write_html(self.save_dir, title, article)
