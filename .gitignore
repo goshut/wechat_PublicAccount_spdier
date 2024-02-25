@@ -8,7 +8,10 @@ test/img
 output
 # 忽略测试项
 main_test.py
-
+# 忽略vue一些项目
+vue_prototype/out_file
+vue_prototype/.vscode
+vue_prototype/edit.css
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
