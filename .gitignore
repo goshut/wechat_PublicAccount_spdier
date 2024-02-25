@@ -6,6 +6,9 @@ test/img
 # 忽略pycharm项目的配置信息
 .idea
 output
+# 忽略测试项
+main_test.py
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

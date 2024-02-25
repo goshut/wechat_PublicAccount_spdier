@@ -132,8 +132,8 @@ async def ay_get_article(html_date, save_dir_path):
         article_tree = html_tree.xpath(DATE_PATH)[0]
         laji_tree = article_tree.xpath(LAJI_PATH)[0]
     except Exception as e:
-        print(html_date)
-        print(e, end="**********************\n" * 3)
+        # print(html_date)
+        print(e, end="\n**********************\n")
         # return "no_title", "no_article"
         return None
     del laji_tree.attrib["style"]  # 垃圾属性会隐藏....

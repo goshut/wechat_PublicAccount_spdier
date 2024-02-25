@@ -168,7 +168,9 @@ class WxGzhSpider:
     async def ay_deal_articleurl_data(self, _url, index):
         print(f"{index}. {_url} :正在处理")
         title, article = "no_title", "no_article"
-        for i in range(5):
+        tries = 5
+        deal_ok_sign = True
+        for i in range(tries):
             response = await self.client.get(url=_url)
             # response = httpx.get(url)
             # print("\n" * 3)
@@ -180,11 +182,23 @@ class WxGzhSpider:
                 break
             else:
                 print(response.status_code)
-                print(f"获取{_url}失败,第{i}次尝试重试.")
+                print(f"获取{_url}失败,第{i+1}次尝试重试.")
                 # 这种情况是异步获取速度太快,微信服务器反应不过来,就用一个垃圾页面来糊弄...当然也有可能是防御措施..但这未免也太弱了...
                 # 5次失败后...就创建一个空页面以后解决
-                await asyncio.sleep(0.2)
+                if i < tries:
+                    await asyncio.sleep(0.2)
+        else:
+            if not res_tulble:
+                deal_ok_sign = False
 
+        # 输出处理结果信息
+        if not deal_ok_sign:
+            print(response.text)
+            print(f"{index}. {_url} :处理失败")
+        elif i > 0:
+            print(f"{index}. 在第{i+1}次尝试成功,处理完成")
+        else:
+            print(f"{index}. 处理完成")
         return await ay_write_html(self.save_dir, title, article)
 
     async def async_run(self):
@@ -214,17 +228,19 @@ if __name__ == "__main__":
         # 网络协议与操作系统
         # url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2411327902559666177&scene=21#wechat_redirect'
         # redis 这个网址直接-1滚出,连报错都没有!!!!!
-        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2554548509648060418#wechat_redirect"
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2554548509648060418#wechat_redirect"
         # 大数据组件  ...只有一个页面,列表url只有1???
         # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2608550406499041280&scene=21#wechat_redirect"
         # python的背后
         # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2516744157244129282#wechat_redirect"
         # cython
-        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2513963764346486784#wechat_redirect"
+        # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2513963764346486784#wechat_redirect"
         # rust
         # url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2583473431749296129&scene=21#wechat_redirect"
         # mysql
         url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2432737848694046721#wechat_redirect"
+        # python实用技巧 有40多个!!
+        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2413802396947742721#wechat_redirect"
         spider_test = WxGzhSpider(url)
         # spider_test.run()
         asyncio.run(spider_test.async_run())
