@@ -247,6 +247,7 @@ if __name__ == "__main__":
         url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2432737848694046721#wechat_redirect"
         # python实用技巧 有40多个!!
         url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NTczMDU2Mg==&action=getalbum&album_id=2413802396947742721#wechat_redirect"
+        url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwNzk2OTQ4MQ==&action=getalbum&album_id=3204441673276194816&subscene=159&subscene=&scenenote=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FHwxYZqz6MqANViNwSylvJw&nolastread=1#wechat_redirect"
         spider_test = WxGzhSpider(url)
         # spider_test.run()
         asyncio.run(spider_test.async_run())
