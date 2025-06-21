@@ -13,7 +13,9 @@ class CodeTimer:
     def __exit__(self, exc_type, exc_value, traceback):
         duration_ns = time.perf_counter_ns() - self.start_time
         duration, unit = perf_counter_ns_change_unit(duration_ns)
-        print(f"{self.code_name + ' ' if self.code_name else ''}运行时间为: {duration} {unit}")
+        print(
+            f"{self.code_name + ' ' if self.code_name else ''}运行时间为: {duration} {unit}"
+        )
 
 
 def calculate_execution_time(func):
@@ -56,7 +58,7 @@ def calculate_execution_time_with_format(func):
     return wrapper
 
 
-def perf_counter_ns_change_unit(duration_ns: int) -> (float, str):
+def perf_counter_ns_change_unit(duration_ns: int):
     """改变纳秒时间单位的单位
     duration_ns: 纳秒的int值
     return:
@@ -91,5 +93,6 @@ def timed(func):
         return result
 
     return wrapper
+
 
 # ct = CodeTimer()
